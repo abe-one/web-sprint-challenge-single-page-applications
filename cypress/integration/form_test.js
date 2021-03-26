@@ -2,7 +2,7 @@
 // Act - user actions (typing, clicking)
 // Assert - actions consequences as expected
 
-import { toppings as tops } from "../../src/App";
+import { toppings } from "../../src/App";
 
 describe("Pizza Form Page", () => {
   // Prerequisites
@@ -13,7 +13,7 @@ describe("Pizza Form Page", () => {
   // Selector Functions
   const nameInput = () => cy.get("input[name='name']");
   const sizeDropdown = () => cy.get("input=['size']");
-  const topsCheckbox = (top) => cy.get(`input[name='${top}'`);
+  const toppingsCheckbox = (topping) => cy.get(`input[name='${topping}'`);
   const specInstr = () => cy.get("input[name=['specialInstructions']");
   const orderBtn = () => cy.get("button[class=['submit-button']");
 
@@ -27,7 +27,9 @@ describe("Pizza Form Page", () => {
   const checkInputsEmpty = () => {
     nameInput().should("have.value", "");
     sizeDropdown().should("have.value", "");
-    tops.forEach((top) => topsCheckbox(top).should("not.be.checked")); //Check all toppings
+    toppings.forEach((topping) =>
+      toppingsCheckbox(topping).should("not.be.checked")
+    ); //Check all toppingpings
     specInstr().should("have.value", "");
   };
 
@@ -49,7 +51,9 @@ describe("Pizza Form Page", () => {
 
     sizeDropdown().select(testSize).should("have.value", testSize);
 
-    tops.forEach((top) => topsCheckbox(top).check().should("be.checked"));
+    toppings.forEach((topping) =>
+      toppingsCheckbox(topping).check().should("be.checked")
+    );
 
     specInstr().type(testInstr).should("have.value", testInstr);
     // SUBMIT //
