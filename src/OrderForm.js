@@ -59,7 +59,7 @@ const OrderForm = ({ values, update, yupUpdate, submit, disabled, errors }) => {
             <input
               name={topping}
               type="checkbox"
-              value={values[topping]}
+              checked={values[topping]}
               onChange={onChange}
             />
             {topping
@@ -79,7 +79,9 @@ const OrderForm = ({ values, update, yupUpdate, submit, disabled, errors }) => {
           placeholder="Let us know"
         ></input>
       </label>
-      <button disabled={disabled}>Place YOUR Order</button>
+      <button className="submit-button" disabled={disabled}>
+        Place YOUR Order
+      </button>
     </form>
   );
 };

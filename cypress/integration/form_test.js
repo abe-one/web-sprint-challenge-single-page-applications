@@ -7,20 +7,20 @@ import { toppings } from "../../src/App";
 describe("Pizza Form Page", () => {
   // Prerequisites
   beforeEach(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3000/pizza");
   });
 
   // Selector Functions
   const nameInput = () => cy.get("input[name='name']");
-  const sizeDropdown = () => cy.get("input=['size']");
+  const sizeDropdown = () => cy.get("select[name='size']");
   const toppingsCheckbox = (topping) => cy.get(`input[name='${topping}'`);
-  const specInstr = () => cy.get("input[name=['specialInstructions']");
-  const orderBtn = () => cy.get("button[class=['submit-button']");
+  const specInstr = () => cy.get("input[name='specialInstructions']");
+  const orderBtn = () => cy.get(".submit-button");
 
   // Input Variables (Optional)
   const testName = "Jeffrey";
   const testInstr = "Uhuh, yeah, extra cheese.";
-  const testSize = "Large";
+  const testSize = "large";
 
   // Test functions (Optional)
 
