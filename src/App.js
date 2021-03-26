@@ -79,6 +79,9 @@ const App = () => {
       size: formValues.size.trim(),
       specialInstructions: formValues.specialInstructions,
     };
+    toppings.forEach((topping) => {
+      order[topping] = formValues[topping];
+    });
     postOrder(order);
   };
 
