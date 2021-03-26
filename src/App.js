@@ -1,5 +1,16 @@
 import React from "react";
 
+/* 
+###TESTS###
+###COMPONENT###
+  Homepage ("/") > Form 
+###COMPONENT###
+  Form ("/pizza")
+    INPUT(text, dropdown, checklist, text)
+    Button
+    (Validation)
+*/
+
 const App = () => {
   return (
     <>
