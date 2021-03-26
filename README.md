@@ -31,16 +31,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+
+- React's `useRouteMatch` is used to define a variable, such as `url` to equal the current page url, and another variable, such as `path` to equal the current page url. That way, instead of having each link or route include a manually repeated url (and path) followed by the (rest of the) path, the repeated sections of each can automatically refer back to the current url (and path) values.
+
 1. How would you explain form validation to someone who has never programmed before?
+
+- Validation is program inside the website that makes sure, or validates, that whatever you input meets the submission requirements of the website. Good practice of the validation includes telling you what needs to be fixed and why, then enabling submission once the inputs are acceptable.
+
 1. In 1-2 sentences, define end to end testing.
+
+- End to end testing is a process of simulating the user experience and actions across the entire application. By simulating the user experience from start (or one end) to finish (the other end) the application can be tested for any bugs or illogical processes.
 
 ## Instructions
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
-- [ ] Add your team lead as collaborator on Github
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [x] Create a forked copy of this project
+- [ ] ?????????? Add your team lead as collaborator on Github ??????????
+- [x] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: `git checkout -b <firstName-lastName>`
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
 - [ ] Push commits: `git push origin <firstName-lastName>`
