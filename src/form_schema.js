@@ -8,5 +8,10 @@ export default yup.object().shape({
     .required()
     .min(2, "Please include a name at least 2 characters long"),
 
-  size: yup.string().oneOf([pizzaSizes], "Please select a size"),
+  size: yup
+    .string()
+    .oneOf(
+      ["personal", "medium", "large", "extraLarge"],
+      "Please select a size"
+    ),
 });

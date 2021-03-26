@@ -20,12 +20,12 @@ import OrderForm from "./OrderForm";
 
 // Exports
 export const toppings = ["extraCheese", "pepperoni", "mushrooms", "pineapple"];
-export const pizzaSizes = ["personal", "medium", "large", "extraLarge"];
+export const pizzaSizes = ["personal", "medium", "large", "extraLarge"]; //Schema BUG
 
 const App = () => {
   // Initial Values
   const initialFormValues = {
-    inputName: "",
+    name: "",
     size: "",
     specialInstructions: "",
   };
@@ -53,7 +53,7 @@ const App = () => {
       .catch((err) => console.log(err));
   };
   // Event Handlers
-  const inputChange = (inputName, value) => {
+  const inputYupChange = (inputName, value) => {
     setFormValues({
       ...formValues,
       [inputName]: value,
@@ -61,12 +61,23 @@ const App = () => {
     yup
       .reach(schema, inputName)
       .validate(value)
-      .then(() => setFormErrors({ ...formErrors, [inputName]: "" }));
+      .then(() => setFormErrors({ ...formErrors, [inputName]: "" }))
+      .catch(() => setFormErrors({ ...formErrors, [inputName]: "" }));
+  };
+
+  const inputChange = (inputName, value) => {
+    setFormValues({
+      ...formValues,
+      [inputName]: value,
+    });
   };
 
   const submitForm = () => {
     const order = {
       // ...formValues, [name].trim()/////////////////////////////////////////////
+      name: formValues.name.trim(),
+      size: formValues.size.trim(),
+      specialInstructions: formValues.specialInstructions,
     };
     postOrder(order);
   };
@@ -87,6 +98,7 @@ const App = () => {
           <OrderForm
             values={formValues}
             update={inputChange}
+            yupUpdate={inputYupChange}
             submit={submitForm}
             disabled={disabled}
             errors={formErrors}
