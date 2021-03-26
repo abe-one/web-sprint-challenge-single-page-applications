@@ -13,9 +13,9 @@ import OrderForm from "./OrderForm";
   Form ("/pizza")
     INPUT(text, dropdown, checklist, text)
     Button
-    (Validation)
-    STATES
-    Refractor component exports
+    (Validation) display Validation
+    Refractor component exports, highlight content comments
+    
 */
 
 // Exports
@@ -84,7 +84,13 @@ const App = () => {
       <h1>Lambda Eats</h1>
       <Switch>
         <Route path="/pizza">
-          <OrderForm />
+          <OrderForm
+            values={formValues}
+            update={inputChange}
+            submit={submitForm}
+            disabled={disabled}
+            errors={formErrors}
+          />
         </Route>
 
         <Route path="/">
