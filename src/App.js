@@ -10,11 +10,12 @@ import React from "react";
     Button
     (Validation)
 */
-const toppings = ["extraCheese", "pepperoni", "mushrooms", "pineapple"];
+export const toppings = ["extraCheese", "pepperoni", "mushrooms", "pineapple"];
 
 const App = () => {
   return (
     <>
+      <input name={toppings[0]} type="checkbox" value=""></input>
       <h1>Lambda Eats</h1>
       <p>You can remove this code and create your own header</p>
     </>

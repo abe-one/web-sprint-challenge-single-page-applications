@@ -11,12 +11,49 @@ describe("Pizza Form Page", () => {
   });
 
   // Selector Functions
-  const nameInput = () => cy.get("input[name=,'name']");
+  const nameInput = () => cy.get("input[name='name']");
+  const sizeDropdown = () => cy.get("input=['size']");
+  const topsCheckbox = (top) => cy.get(`input[name='${top}'`);
+  const specInstr = () => cy.get("input[name=['specialInstructions']");
+  const orderBtn = () => cy.get("button[class=['submit-button']");
+
   // Input Variables (Optional)
+  const testName = "Jeffrey";
+  const testInstr = "Uhuh, yeah, extra cheese.";
+  const testSize = "Large";
+
+  // Test functions (Optional)
+
+  const checkInputsEmpty = () => {
+    nameInput().should("have.value", "");
+    sizeDropdown().should("have.value", "");
+    tops.forEach((top) => topsCheckbox(top).should("not.be.checked")); //Check all toppings
+    specInstr().should("have.value", "");
+  };
 
   // Tests
   it("Is sane", () => {
     expect(2 + 2).to.equal(4);
-    expect(2 + 2).to.equal("fish");
+    expect(2 + 2).to.not.equal("fish");
+  });
+
+  it("Initializes empty", checkInputsEmpty);
+
+  //////TEST VALIDATION HERE///////
+
+  ////////////////////////////////
+
+  it("Receives input, submits, and clears input", () => {
+    // INPUT //
+    nameInput().type(testName).should("have.value", testName);
+
+    sizeDropdown().select(testSize).should("have.value", testSize);
+
+    tops.forEach((top) => topsCheckbox(top).check().should("be.checked"));
+
+    specInstr().type(testInstr).should("have.value", testInstr);
+    // SUBMIT //
+    orderBtn().click();
+    checkInputsEmpty();
   });
 }); //Pizza Form Page
