@@ -10,6 +10,7 @@ import React from "react";
     Button
     (Validation)
 */
+const toppings = ["extraCheese", "pepperoni", "mushrooms", "pineapple"];
 
 const App = () => {
   return (
